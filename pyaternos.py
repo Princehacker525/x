@@ -1,42 +1,182 @@
+import subprocess
 
-import requests
+import wolframalpha
+
+import pyttsx3
+
+import tkinter
+
 import json
-def login(mail, password):
 
-s = requests.Session()
+import random
 
-payload={
+import operator
 
-'email': mail,
+import speech_recognition as sr
 
-'password': password
+import datetime
 
-}
+import wikipedia
 
-res = s.post('https://aternos.org/', json-payload)
+import webbrowser
 
-s.headers.update({'authorization': json.loads(res.content)['token']})
+import os
 
-print(res.content)
+import winshell
 
-return s
+import pyjokes
 
-session = login('Lagjavacrash', 'trewq12345')
+import feedparser
 
-r = session.patch('https://aternos.org/account/', json={'username'}) print(r.content)
-from selenium import webdriver
+import smtplib
 
-from webdriver_manager.chrome import Chrome DriverManager
+import ctypes
+
 import time
 
-browser = webdriver.Chrome (ChromeDriverManager().install())
+import requests
 
-browser.get('https://aternos.org/')
+import shutil
 
-time.sleep(5)
+from twilio.rest import Client
 
-button = browser.find_element_by_link_text('Start')
+from clint.textui import progress
 
-button.click()
+from ecapture import ecapture as ec
 
-time.sleep(3)
+from bs4 import BeautifulSoup
+
+import win32com.client as wincl
+
+from urllib.request import urlopen
+
+engine = pyttsx3.init('sapi5')
+
+voices = engine.getProperty('voices')
+
+engine.setProperty('voice', voices[1].id)
+
+def speak(audio):
+
+    engine.say(audio)
+
+    engine.runAndWait()
+ 
+
+def wishMe():
+
+    hour = int(datetime.datetime.now().hour)
+
+    if hour>= 0 and hour<12:
+
+        speak("Good Morning Sir !")
+
+  
+
+    elif hour>= 12 and hour<18:
+
+        speak("Good Afternoon Sir !")   
+
+  
+
+    else:
+
+        speak("Good Evening Sir !")  
+
+  
+
+    assname =("Jarvis 1 point o")
+
+    speak("I am your Assistant")
+
+    speak(assname)
+
+     
+ 
+
+def username():
+
+    speak("What should i call you sir")
+
+    uname = takeCommand()
+
+    speak("Welcome Mister")
+
+    speak(uname)
+
+    columns = shutil.get_terminal_size().columns
+
+     
+
+    print("#####################".center(columns))
+
+    print("Welcome Mr.", uname.center(columns))
+
+    print("#####################".center(columns))
+
+     
+
+    speak("How can i Help you, Sir")
+ 
+
+def takeCommand():
+
+     
+
+    r = sr.Recognizer()
+
+     
+
+    with sr.Microphone() as source:
+
+         
+
+        print("Listening...")
+
+        r.pause_threshold = 1
+
+        audio = r.listen(source)
+
+  
+
+    try:
+
+        print("Recognizing...")    
+
+        query = r.recognize_google(audio, language ='en-in')
+
+        print(f"User said: {query}\n")
+
+  
+
+    except Exception as e:
+
+        print(e)    
+
+        print("Unable to Recognize your voice.")  
+
+        return "None"
+
+     
+
+    return query
+
+  
+
+def sendEmail(to, content):
+
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+
+    server.ehlo()
+
+    server.starttls()
+
+     
+
+    # Enable low security in gmail
+    
+    server.login('', '')
+
+    server.sendmail('your email id', to, content)
+
+    server.close()
