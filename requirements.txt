@@ -1,3 +1,3 @@
 requests
-json
+json==1.6.3
 selenium
