@@ -1,1 +1,1 @@
-work: pyaternos.py
+pyaternos.py
