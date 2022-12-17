@@ -1,8 +1,0 @@
-subprocess
-wolframalpha
-pyttsx3
-random
-tkinter
-operator
-datetime
-speech_recognition 
