@@ -1,2 +1,1 @@
-worker:pyaternos.py
-web:pyaternos.py
+web: java -Xmx1024M -Xms1024M -jar minecraft_server.jar nogui
